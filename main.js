@@ -1,25 +1,12 @@
 $(document).ready(function() {
-    $("#portrait-photo img").addClass("load-top");
-    $("#banner-text *").addClass("load-left");
-});
+
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
 
 
-$("#menu").hover(function () {
-    $("#menu-list").css({display: "block"});
-    setTimeout(function(){
-        $("#menu-list").css({opacity: "1"});
-    }, 500);
-}, 
-function () {
-    $("#menu-list").css({display: "none"});
-    $("#menu-list").css({opacity: "0"});
-});
+        if($(window).scrollTop() > 0 && $(window).scrollTop() < 600) {
+            $(".photo").css({top: (600 - $(window).scrollTop())/3 + 'px'});
+        }
 
-$(document).scroll(function () {
-    var y = $(this).scrollTop();
-    if (y > 600) {
-        $('#hard-skills').fadeIn();
-        $(".skills").css({"background-position": "left bottom"});
-    } 
-
-});
+    }); 
+    });
