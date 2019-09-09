@@ -1,3 +1,5 @@
+/* elements */
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -12,15 +14,35 @@ h1 {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 100px;
+  margin: 0px;
 }
 
+h3 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 20px;
+}
+
+hr {
+  height: 10px;
+  width: 80px;
+  background: black;
+  opacity: 0;
+  border: none;
+}
+
+/* by chronological section */
+
 .body {
-  width: 1800px;
+  max-width: 2000px;
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(2, 800px); */
+  grid-template-rows: 1000px 300px 1000px 400px;
 }
 
 .header-text {
@@ -71,16 +93,217 @@ h2 {
 
 .description {
   /* grid-column: col 1 / span 4; */
+  padding-top: 80px;
+  grid-column-start: 1;
+  grid-column-end: 13;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(180deg, rgba(131,166,197,1) 0%,  rgba(67,93,116,1) 100%);
+}
+
+.description:before {
+  /* border-left: 100% solid transparent; */
+  border-right: 50% solid transparent;
+  border-bottom: 300px solid #83a6c5;
+  content: "";
+  position: absolute;
+  width: 0;
+  bottom: 100%;
+  left: 0;
+}
+
+.description h2, h3, p {
+  opacity: 0;
+  z-index: 1;
+}
+
+.description h2 {
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: -65px;
+  left: 280px;
+}
+
+.description h3 {
+  margin-top: 50px;
+}
+
+.skills {
+  padding-top: 100px;
+  grid-column-start: 1;
+  grid-column-end: 13;
+  position: relative;
+  background: rgba(67,93,116,1);
+}
+
+.skills:after {
+  background: inherit;
+  bottom: -550px;
+  content: '';
+  display: block;
+  height: 60%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: skewY(15deg);
+  transform-origin: 100%;
+  z-index: -1;
+}
+
+.skills h2 {
+text-align: center;
+opacity: 0;
+}
+
+.chart-position {
+  position: absolute;
+  bottom: -120px;
+  left: 100px;
+}
+
+.chart-position:nth-of-type(2) {
+  bottom: -170px;
+  left: 290px;
+}
+
+.chart {
+  position: relative;
+}
+
+.hexagon-position {
+  position: absolute;
+  bottom: 0;
+}
+
+.hexagon-position:nth-child(1){
+  bottom: 65px;
+  left: 15px;
+}
+
+.hexagon-position:nth-child(2){
+  bottom: 80px;
+  left: 80px;
+}
+
+.hexagon-position:nth-child(3){
+  bottom: 145px;
+  left: 110px;
+}
+
+.hexagon-position:nth-child(4){
+  bottom: 160px;
+  left: 175px;
+}
+
+.hexagon-position:nth-child(5){
+  bottom: 225px;
+  left: 205px;
+}
+
+.hexagon-position:nth-child(6){
+  bottom: 240px;
+  left: 270px;
+}
+
+.hexagon-position:nth-child(7){
+  bottom: 305px;
+  left: 300px;
+}
+
+.hexagon-position:nth-child(8){
+  bottom: 320px;
+  left: 365px;
+}
+
+.hexagon-position:nth-child(9){
+  bottom: 385px;
+  left: 395px;
+}
+
+.hexagon-position:nth-child(10){
+  bottom: 400px;
+  left: 460px;
+}
+
+.test {
   grid-column-start: 1;
   grid-column-end: 13;
 }
 
-.hexagon {
-  position: relative;
+/* hexagons and animations */
+.W60 {
+  width: 60px; 
+  height: 34.64px;
+  margin: 17.32px 0;
+  /* transform: rotate(-20deg); */
+  transform: skewY(-15deg);
+  border-top: .25px solid #83a6c5;
+  border-bottom: .25px solid #83a6c5;
+  background-color: #83a6c5;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.55);
+}
+
+.W60:before {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 17.32px solid #83a6c5;
+}
+
+.W60:after {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 17.32px solid #83a6c5;
+}
+
+.W400 {
   width: 400px;
   height: 230.94px;
-  background-color: #6085a5;
   margin: 115.47px 0;
+  background-color: #83a6c5;
+}
+
+.W400:before {
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-bottom: 115.47px solid #83a6c5;
+}
+
+.W400:after {
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-top: 115.47px solid #83a6c5;
+}
+
+.W800 {
+  width: 800px; 
+  height: 461.88px;
+  background-color: #83a6c5;
+  margin: 230.94px 0;
+  text-align: initial;
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.W800:before {
+  border-left: 400px solid transparent;
+  border-right: 400px solid transparent;
+  border-bottom: 230.94px solid #83a6c5;
+  z-index: -1;
+}
+
+.W800:after {
+  border-left: 400px solid transparent;
+  border-right: 400px solid transparent;
+  border-top: 230.94px solid #83a6c5;
+  z-index: -1;
+}
+
+.hexagon {
+  position: relative;
 }
 
 .hexagon:before,
@@ -88,19 +311,15 @@ h2 {
   content: "";
   position: absolute;
   width: 0;
-  border-left: 200px solid transparent;
-  border-right: 200px solid transparent;
 }
 
 .hexagon:before {
   bottom: 100%;
-  border-bottom: 115.47px solid #6085a5;
 }
 
 .hexagon:after {
   top: 100%;
   width: 0;
-  border-top: 115.47px solid #6085a5;
 }
 
 .hexagonPhoto {
